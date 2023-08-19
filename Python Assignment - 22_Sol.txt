@@ -1,0 +1,213 @@
+Python Assignment - 22
+
+1. What is the result of the code, and explain?
+
+ X = "iNeuron"
+ def func():
+print(X)
+
+func()
+
+Sol: X = 'iNeuron': This line assigns the string 'iNeuron' to the variable X.
+
+def func():: This line defines a function named func(). The function is empty and does not have any explicit parameters.
+
+print(X): This line is inside the func() function and attempts to print the value of the variable X. However, there is an issue with this line due to how the code is formatted. The print(X) statement should be indented properly to be considered part of the function body. This seems like a formatting error in the code snippet provided.
+
+Output: iNeuron
+
+
+
+2. What is the result of the code, and explain?
+
+X = "iNeuron"
+ def func():
+X = "NI"
+
+ func()
+print(X)
+
+Sol: X = 'iNeuron': This line assigns the string 'iNeuron' to the variable X in the global scope.
+
+def func():: This line defines a function named func(). The function is empty and does not have any explicit parameters.
+
+X = 'NI!': This line is inside the func() function and assigns the string 'NI!' to the local variable X within the function scope. This local variable X is distinct from the global variable X.
+
+func(): This line calls the func() function. Inside the function, a local variable X with the value 'NI!' is assigned, but this variable only exists within the function's scope.
+
+print(X): This line attempts to print the value of the global variable X, which is 'iNeuron'. However, since the func() function had its own local variable X with the value 'NI!', this line will still print 'iNeuron'.
+
+Output: iNeuron
+
+
+
+3. What does this code print, and why?
+
+X = "iNeuron"
+def func():
+X = "NI"
+print(X)
+
+ func()
+print(X)
+
+Sol: X = 'iNeuron': This line assigns the string 'iNeuron' to the variable X in the global scope.
+
+def func():: This line defines a function named func().
+
+X = 'NI': This line is inside the func() function and assigns the string 'NI' to the local variable X within the function scope.
+
+print(X): This line is inside the func() function and prints the value of the local variable X, which is 'NI'.
+
+func(): This line calls the func() function. Inside the function, a local variable X with the value 'NI' is assigned and printed.
+
+print(X): This line attempts to print the value of the global variable X, which is 'iNeuron'.
+
+Output: NI
+        iNeuron
+
+
+4. What output does this code produce? Why?
+
+ X = "iNeuron"
+def func():
+global X
+X = "NI"
+
+ func()
+print(X)
+
+
+Sol: X = 'iNeuron': This line assigns the string 'iNeuron' to the variable X in the global scope.
+
+def func():: This line defines a function named func().
+
+global X: This line inside the func() function tells the interpreter that the variable X being used is the global variable, not a local one. This means that the assignment in the following line will modify the global variable X.
+
+X = 'NI': This line is inside the func() function and assigns the string 'NI' to the global variable X.
+
+func(): This line calls the func() function. Inside the function, the global variable X is assigned the value 'NI'.
+
+print(X): This line attempts to print the value of the global variable X, which has been modified within the func() function to 'NI'.
+
+
+Output: NI
+
+
+
+5. What about this code—what’s the output, and why?
+
+ X = "iNeuron"
+def func():
+X = "NI"
+def nested():
+print(X)
+nested()
+
+func()
+ X
+
+Sol: The global variable X is assigned the value "iNeuron".
+The func() function defines a local variable X with the value "NI" and then defines a nested function nested().
+The nested() function prints the value of the local variable X from the func() function's scope, which is "NI".
+When the func() function is called, the nested() function is executed, printing "NI".
+After calling the func() function, the last line print(X) prints the value of the global variable X, which is "iNeuron".
+
+Output: NI
+        iNeuron
+
+
+6. How about this code: what is its output in Python 3, and explain?
+
+def func():
+X = "NI"
+def nested():
+nonlocal X
+X = "Spam"
+nested()
+print(X)
+
+func()
+
+
+Sol: def func():: This line defines a function named func().
+
+X = "NI": This line assigns the string "NI" to the local variable X within the func() function's scope.
+
+def nested():: This line defines a nested function named nested().
+
+nonlocal X: This line inside the nested() function indicates that the variable X being assigned refers to the nearest enclosing scope that isn't the global scope. In this case, it refers to the X variable within the func() function.
+
+X = "Spam": This line inside the nested() function assigns the string "Spam" to the variable X in the func() function's scope due to the use of the nonlocal keyword.
+
+nested(): This line calls the nested() function, which changes the value of the X variable to "Spam" within the func() function's scope.
+
+print(X): This line prints the value of the X variable within the func() function's scope, which is now "Spam".
+
+func(): This line calls the func() function.
+
+ output:
+
+Copy code
+Spam
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
